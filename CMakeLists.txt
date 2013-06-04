@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 2.8)
+cmake_policy(SET CMP0015 NEW)
+project(SVM_LEARN)
+
+if(UNIX)
+    add_definitions(-DUNIX)
+    find_package(OpenCV PATHS "/home/samuel/install/share/OpenCV" NO_DEFAULT_PATH)
+    #find_package(OpenCV PATHS "/home/fshen/Install_samuel/OpenCV/OpenCV-2.4.2/Debug/share/OpenCV/" NO_DEFAULT_PATH)
+    
+	#find_package(OpenCV PATHS "/home/fshen/samuel/project_self/bow-opencv/opencv/build" NO_DEFAULT_PATH)
+elseif(WIN32)
+    add_definitions(-DWIN32)
+	find_package(OpenCV PATHS "D:/software/OpenCV/OpenCV-2.4.2/build"  NO_DEFAULT_PATH)
+	#include("D:/software/OpenCV/OpenCV-2.3.0/build/OpenCVConfig.cmake")
+else()
+    message("this library only support on windows and unix")
+	return()	
+endif()
+
+include_directories(${OpenCV_INCLUDE_DIRS}) 
+include_directories(./) 
+include_directories(./FaceRecEm/common/src/b_FDSDK/) 
+include_directories(./Embedded/common/src) 
+
+link_directories(./)
+MESSAGE(${OpenCV_INCLUDE_DIRS})
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
+
+SET(target_name "android_face") 
+add_executable(${target_name}  main.c )
+target_link_libraries(${target_name} ${OpenCV_LIBS} neven )

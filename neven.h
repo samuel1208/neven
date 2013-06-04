@@ -1,6 +1,13 @@
 #ifndef _NEVEN_H
 #define _NEVEN_H
 
+#include "DCR.h"
+#include "FaceFinder.h"
+#include "FaceFinder_Internal.h"
+#include "fd_emb_sdk.h"
+#include "SDK.h"
+#include "Types.h"
+
 struct neven_env {
         btk_HFaceFinder fd;
         btk_HSDK sdk;

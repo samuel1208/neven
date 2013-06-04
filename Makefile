@@ -7,7 +7,7 @@ MKDIR = mkdir
 INSTALL = install
 PREFIX = /usr
 
-CFLAGS = -O2 -fPIC -IEmbedded/common/src
+CFLAGS = -O2 -g -fPIC -IEmbedded/common/src
 
 OBJS = Embedded/common/src/b_APIEm/DCR.o \
        Embedded/common/src/b_APIEm/BFFaceFinder.o \

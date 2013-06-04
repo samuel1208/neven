@@ -165,7 +165,8 @@ btk_Status btk_DCR_assignImage( btk_HDCR hdcrA,
 	}
 
 	bpi_DCR_assignGrayByteImage( &hsdkL->contextE, &hdcrA->dcrE, pDataA, widthA, heightA );
-	if( bbs_Context_error( &hsdkL->contextE ) ) return btk_STATUS_ERROR;
+	if( bbs_Context_error( &hsdkL->contextE ) ) 
+        return btk_STATUS_ERROR;
 
 	return btk_STATUS_OK;
 }
